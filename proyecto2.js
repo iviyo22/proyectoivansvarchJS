@@ -10,11 +10,11 @@ class Provincias {
 }
 }
 
-const prov1 = new Producto("Mendoza",600)
-const prov2 = new Producto("Cordoba",600)
-const prov3 = new Producto("Neuquen",1000)
+const mendoza = new Provincias("Mendoza",600,200)
+const cordoba = new Provincias("Cordoba",600,300)
+const neuquen = new Provincias("Neuquen",1000,600)
 
-const arrayProvincias = [Mendoza, Neuquen, Cordoba];
+const arrayProvincias = [mendoza, cordoba, neuquen];
 
 
 function saludar() {
@@ -30,13 +30,14 @@ let edad = parseInt(prompt("Ingrese su Edad"))
     }
     
 }
-const mostrarDetalles = (provSeleccionada) => {
-    arrayProvincias.forEach(producto => {
-      if (provSeleccionada === 1) {
-     
-      }
-    });
-  };
+const contenedorProductos = document.getElementById("contenedorProductos");
+arrayProvincias.forEach( producto => {
+    const div = document.createElement("div");
+    div.innerHTML = `<p> Nombre: ${producto.provincia}</p>
+                    <p> Precio: ${producto.precio}</p>
+                    <button>Agregar al carrito</button>`
+    contenedorProductos.appendChild(div);
+})
 
   function cobrarAlCliente(producto){
     let montoCliente = parseInt(prompt("Ingrese Monto"));
